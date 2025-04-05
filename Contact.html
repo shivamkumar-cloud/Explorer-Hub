@@ -3,69 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./CSS/style.css"> 
     <script src="https://kit.fontawesome.com/8eba6a1f63.js" crossorigin="anonymous"></script>
     <title>EXPLORER HUB | CONTACT US</title>
 </head>
 <body>
+
 <nav class="navbar bg-dark">
     <div class="container">
         <h1 class="logo lg-heading"></h1>
-            <ul class="nav-items">
-                    <li class="nav-item"><a href="index.html">Home</a></li>
-                    <li class="nav-item"><a href="About.html">About</a></li>
-                    <li class="nav-item"><a href="Contact.html">Contact Us</a></li>
-    </ul></div></nav>
+        <ul class="nav-items">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="About.html">About</a></li>
+            <li class="nav-item"><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
 
 <section class="contact-form">
     <div class="container">
-    <div class="form-wrapper">
-        <div class="company-address">
-            <div class="address-group">
-                <i class="fas fa-map-marker-alt fa-3x text-red"></i>
-                <h2 class="text-gray md-heading">Location</h2>
-                <p>Knowledge Park II, Greater Noida, Uttar Pradesh</p>
+        <div class="form-wrapper">
+            <div class="company-address">
+                <div class="address-group">
+                    <i class="fas fa-map-marker-alt fa-3x text-red"></i>
+                    <h2 class="text-gray md-heading">Location</h2>
+                    <p>Knowledge Park II, Greater Noida, Uttar Pradesh</p>
+                </div>
+
+                <div class="address-group">
+                    <i class="far fa-envelope fa-3x text-red"></i>
+                    <h2 class="text-gray md-heading">Email</h2>
+                    <p>shivamkumar06ind@gmail.com</p>
+                </div>
+
+                <div class="address-group">
+                    <i class="fas fa-phone-square-alt fa-3x text-red"></i>
+                    <h2 class="text-gray md-heading">Call</h2>
+                    <p>+91-9310107340</p>
+                </div>
+
+                <img src="./img/office.jpeg" alt="office" />
             </div>
 
-            <div class="address-group">
-                <i class="far fa-envelope fa-3x text-red"></i>
-                <h2 class="text-gray md-heading">Email</h2>
-                <p>shivamkumar06ind@gmail.com</p>
-            </div>
+            <form action="" class="form">
+                <h1 class="lg-heading text-black">Contact Us</h1>
+                <p class="text-gray">Let us know about your questions, suggestions, and feedback by filling out the contact form below.</p>
 
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
 
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
 
-            <div class="address-group">
-                <i class=" fas fa-phone-square-alt fa-3x text-red"></i>
-                <h2 class="text-gray md-heading">Call</h2>
-                <p>+91-9310107340</p>
-            </div>
-            <img src="./img/office.jpeg" alt="office">
-        </div>
-        <form action="" class="form">
-            <h1 class="lg-heading text-black">Contact Us</h1>
-            <p class="text-gray">Let us know about your questions, suggestion and feedback out the contack form below</p>
-            <div class="form-group">
-                <label for="username">username</label>
-                <input type="text" name="" id="username" required>
-            </div>
-            <div class="form-group">
-                <label for="Email">Email</label>
-                <input type="email" name="" id="Email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">phone</label>
-                <input type="text" name="" id="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="Messsage">Message</label>
-                <textarea name="" id="message"> </textarea>
-            </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
                 <button type="submit" class="form-btn">Submit</button>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
 </section>
+
 <footer class="footer">
     <div class="social-media-links">
         <i class="fa-brands fa-facebook fa-4x"></i>
@@ -75,6 +84,5 @@
     <p> | EXPLORER HUB | &copy; Copyright 2025, All rights Reserved</p>
 </footer>
 
-    
 </body>
 </html>

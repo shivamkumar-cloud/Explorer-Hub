@@ -6,244 +6,261 @@
     <title>Explorer Hub | Complete Delhi Tourism Guide</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-    <!-- Notification Popup -->
-    <div id="notificationPopup" class="notification-popup">
-        <div class="notification-content">
-            <button class="close-notification">&times;</button>
-            <div class="notification-header">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Nearby Places You Might Like!</h3>
-            </div>
-            <div class="notification-body">
-                <div id="nearbyPlacesList" class="nearby-places-list">
-                    <!-- Nearby places will be loaded here -->
-                </div>
-            </div>
-            <div class="notification-footer">
-                <button id="closeNotification" class="btn-small">Close</button>
-                <button id="viewAllNearby" class="btn-primary-small">View All Nearby</button>
-            </div>
-        </div>
+    <!-- Notification Alert -->
+    <div class="notification-alert">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Welcome to Explorer Hub! Discover 200+ places in Delhi</span>
+        <button class="close-alert">&times;</button>
     </div>
 
-    <!-- Navigation -->
+    <!-- Fixed Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-compass animate-spin"></i>
-                <span>Explorer Hub</span>
-                <span class="tagline">Discover Delhi</span>
+                <i class="fas fa-compass"></i>
+                <h1>Explorer<span>Hub</span></h1>
+                <p class="tagline">Discover Delhi</p>
             </div>
-            
-            <!-- Enhanced Dropdown Navigation -->
-            <div class="nav-main">
+
+            <div class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="fas fa-layer-group"></i> Categories 
-                            <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-grid">
-                                <div class="dropdown-category">
-                                    <h4><i class="fas fa-temple"></i> Spiritual</h4>
-                                    <a href="#temples">Temples & Mosques</a>
-                                    <a href="#gurudwaras">Gurudwaras</a>
-                                    <a href="#churches">Churches</a>
-                                </div>
-                                <div class="dropdown-category">
-                                    <h4><i class="fas fa-landmark"></i> Historical</h4>
-                                    <a href="#monuments">Monuments</a>
-                                    <a href="#forts">Forts & Palaces</a>
-                                    <a href="#museums">Museums</a>
-                                </div>
-                                <div class="dropdown-category">
-                                    <h4><i class="fas fa-tree"></i> Nature</h4>
-                                    <a href="#gardens">Gardens & Parks</a>
-                                    <a href="#lakes">Lakes & Water Bodies</a>
-                                    <a href="#zoos">Zoos & Sanctuaries</a>
-                                </div>
-                                <div class="dropdown-category">
-                                    <h4><i class="fas fa-gem"></i> Experiences</h4>
-                                    <a href="#hidden">Hidden Gems</a>
-                                    <a href="#markets">Markets & Bazaars</a>
-                                    <a href="#food">Food Streets</a>
-                                    <a href="#nightlife">Nightlife</a>
-                                </div>
-                            </div>
-                            <div class="dropdown-featured">
-                                <h4><i class="fas fa-crown"></i> Must Visit</h4>
-                                <div class="featured-places">
-                                    <a href="#place-indiagate" class="featured-place">India Gate</a>
-                                    <a href="#place-redfort" class="featured-place">Red Fort</a>
-                                    <a href="#place-lotustemple" class="featured-place">Lotus Temple</a>
-                                    <a href="#place-qutubminar" class="featured-place">Qutub Minar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="#interactive-map"><i class="fas fa-map-marked-alt"></i> Interactive Map</a></li>
-                    <li><a href="#itinerary"><i class="fas fa-route"></i> Plan Trip</a></li>
-                    <li><a href="#contact"><i class="fas fa-headset"></i> Contact</a></li>
+                    <li><a href="#categories"><i class="fas fa-th-large"></i> Categories</a></li>
+                    <li><a href="#explore"><i class="fas fa-map-marked-alt"></i> Explore Map</a></li>
+                    <li><a href="#itinerary"><i class="fas fa-route"></i> Itinerary</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
                 </ul>
             </div>
-            
+
             <div class="nav-actions">
-                <button class="search-btn" id="searchToggle">
-                    <i class="fas fa-search"></i>
-                </button>
-                <div class="search-bar" id="searchBar">
-                    <input type="text" placeholder="Search places in Delhi..." id="searchInput">
-                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search places...">
+                    <div class="search-results"></div>
                 </div>
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                 </button>
-                <div class="hamburger">
+                <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Categories Dropdown -->
+        <div class="categories-dropdown">
+            <div class="container">
+                <div class="category-grid">
+                    <div class="category-column">
+                        <h4><i class="fas fa-temple"></i> Religious Places</h4>
+                        <a href="#temples">Temples</a>
+                        <a href="#mosques">Mosques</a>
+                        <a href="#gurudwaras">Gurudwaras</a>
+                        <a href="#churches">Churches</a>
+                    </div>
+                    <div class="category-column">
+                        <h4><i class="fas fa-landmark"></i> Historical Sites</h4>
+                        <a href="#monuments">Monuments</a>
+                        <a href="#forts">Forts</a>
+                        <a href="#tombs">Tombs</a>
+                        <a href="#museums">Museums</a>
+                    </div>
+                    <div class="category-column">
+                        <h4><i class="fas fa-tree"></i> Gardens & Parks</h4>
+                        <a href="#gardens">Gardens</a>
+                        <a href="#parks">Parks</a>
+                        <a href="#lakes">Lakes</a>
+                        <a href="#zoos">Zoos</a>
+                    </div>
+                    <div class="category-column">
+                        <h4><i class="fas fa-shopping-bag"></i> Markets</h4>
+                        <a href="#markets">Markets</a>
+                        <a href="#bazaars">Bazaars</a>
+                        <a href="#malls">Shopping Malls</a>
+                        <a href="#food-streets">Food Streets</a>
+                    </div>
+                    <div class="category-column">
+                        <h4><i class="fas fa-glass-cheers"></i> Nightlife</h4>
+                        <a href="#bars">Bars & Pubs</a>
+                        <a href="#clubs">Clubs</a>
+                        <a href="#restaurants">Fine Dining</a>
+                        <a href="#cafes">Cafes</a>
+                    </div>
+                    <div class="category-column">
+                        <h4><i class="fas fa-star"></i> Top Attractions</h4>
+                        <a href="#india-gate">India Gate</a>
+                        <a href="#red-fort">Red Fort</a>
+                        <a href="#qutub-minar">Qutub Minar</a>
+                        <a href="#lotus-temple">Lotus Temple</a>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Parallax -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="parallax-layer layer1" data-speed="0.1"></div>
-            <div class="parallax-layer layer2" data-speed="0.3"></div>
-            <div class="parallax-layer layer3" data-speed="0.5"></div>
-        </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
         <div class="hero-overlay">
             <div class="container">
-                <div class="hero-content animate__animated animate__fadeInUp">
-                    <div class="hero-badge">
-                        <i class="fas fa-award"></i> Delhi's #1 Tourism Guide
-                    </div>
-                    <h1 class="hero-title">
-                        <span class="title-line">Explore Every Corner of</span>
-                        <span class="title-highlight">DELHI</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Discover 200+ Temples, Monuments, Hidden Gems & Local Secrets
+                <div class="hero-content">
+                    <h2 class="hero-subtitle animate__animated animate__fadeInUp">Welcome to</h2>
+                    <h1 class="hero-title animate__animated animate__fadeInUp animate__delay-1s">Delhi's Ultimate<br>Tourism Guide</h1>
+                    <p class="hero-description animate__animated animate__fadeInUp animate__delay-2s">
+                        Explore 200+ historical monuments, temples, gardens, markets, and hidden gems of India's capital city. 
+                        Your complete guide to experiencing the real Delhi.
                     </p>
-                    
-                    <div class="hero-search">
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="What do you want to explore today?">
-                            <button class="search-btn-hero">Explore Now</button>
-                        </div>
-                        <div class="search-tags">
-                            <span class="tag">Temples</span>
-                            <span class="tag">Historical</span>
-                            <span class="tag">Food</span>
-                            <span class="tag">Shopping</span>
-                            <span class="tag">Adventure</span>
-                        </div>
+                    <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
+                        <a href="#explore" class="btn-primary">
+                            <i class="fas fa-compass"></i> Start Exploring
+                        </a>
+                        <a href="#categories" class="btn-secondary">
+                            <i class="fas fa-video"></i> Virtual Tour
+                        </a>
                     </div>
-                    
-                    <div class="hero-features">
-                        <div class="feature">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <span>Interactive Maps</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-video"></i>
-                            <span>360° Virtual Tours</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-rupee-sign"></i>
-                            <span>Budget Calculator</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-clock"></i>
-                            <span>Real-time Crowd Info</span>
-                        </div>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-landmark"></i>
+                        <div class="stat-number" data-count="85">0</div>
+                        <p>Historical Sites</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-temple"></i>
+                        <div class="stat-number" data-count="120">0</div>
+                        <p>Religious Places</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-utensils"></i>
+                        <div class="stat-number" data-count="200">0</div>
+                        <p>Food Joints</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div class="stat-number" data-count="150">0</div>
+                        <p>Locations Mapped</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <div class="arrow-down">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
     </section>
 
-    <!-- Quick Stats -->
-    <section class="quick-stats">
+    <!-- Quick Categories -->
+    <section class="quick-categories">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card animate-on-scroll">
-                    <i class="fas fa-landmark"></i>
-                    <div class="stat-number" data-count="85">0</div>
-                    <div class="stat-label">Historical Monuments</div>
+            <h2 class="section-title">Explore By Interest</h2>
+            <p class="section-subtitle">Choose your adventure category</p>
+            
+            <div class="categories-grid">
+                <div class="category-item" data-category="historical">
+                    <div class="category-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Historical</h3>
+                    <p>Monuments & Forts</p>
+                    <span class="count">45 Places</span>
                 </div>
-                <div class="stat-card animate-on-scroll">
-                    <i class="fas fa-temple"></i>
-                    <div class="stat-number" data-count="120">0</div>
-                    <div class="stat-label">Sacred Temples</div>
+                <div class="category-item" data-category="religious">
+                    <div class="category-icon">
+                        <i class="fas fa-temple"></i>
+                    </div>
+                    <h3>Religious</h3>
+                    <p>Temples & Mosques</p>
+                    <span class="count">60 Places</span>
                 </div>
-                <div class="stat-card animate-on-scroll">
-                    <i class="fas fa-tree"></i>
-                    <div class="stat-number" data-count="45">0</div>
-                    <div class="stat-label">Parks & Gardens</div>
+                <div class="category-item" data-category="nature">
+                    <div class="category-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Nature</h3>
+                    <p>Gardens & Parks</p>
+                    <span class="count">35 Places</span>
                 </div>
-                <div class="stat-card animate-on-scroll">
-                    <i class="fas fa-utensils"></i>
-                    <div class="stat-number" data-count="200">0</div>
-                    <div class="stat-label">Food Joints</div>
+                <div class="category-item" data-category="shopping">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Shopping</h3>
+                    <p>Markets & Malls</p>
+                    <span class="count">40 Places</span>
+                </div>
+                <div class="category-item" data-category="food">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Food</h3>
+                    <p>Restaurants & Streets</p>
+                    <span class="count">50 Places</span>
+                </div>
+                <div class="category-item" data-category="culture">
+                    <div class="category-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>Culture</h3>
+                    <p>Museums & Galleries</p>
+                    <span class="count">25 Places</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Categories -->
-    <section class="interactive-categories">
+    <!-- Interactive Map -->
+    <section id="explore" class="map-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Explore Delhi By Interest</h2>
-                <p class="section-subtitle">Click any category to dive deep into Delhi's treasures</p>
+                <h2 class="section-title">Interactive Delhi Map</h2>
+                <p class="section-subtitle">Click on any location to explore details</p>
             </div>
             
-            <div class="categories-carousel">
-                <div class="carousel-container">
-                    <div class="category-slide active" data-category="temples">
-                        <div class="slide-content">
-                            <i class="fas fa-temple"></i>
-                            <h3>Sacred Temples</h3>
-                            <p>Spiritual sanctuaries & religious sites</p>
-                            <button class="explore-category" data-category="temples">
-                                Explore 45 Temples <i class="fas fa-arrow-right"></i>
-                            </button>
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <!-- Map will be generated by JavaScript -->
+                    <div class="delhi-map">
+                        <div class="map-area" data-place="india-gate" style="top: 40%; left: 45%;">
+                            <div class="map-pin">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="map-tooltip">India Gate</div>
                         </div>
-                    </div>
-                    <div class="category-slide" data-category="monuments">
-                        <div class="slide-content">
-                            <i class="fas fa-landmark"></i>
-                            <h3>Historical Monuments</h3>
-                            <p>Architectural marvels of ancient Delhi</p>
-                            <button class="explore-category" data-category="monuments">
-                                Explore 32 Monuments <i class="fas fa-arrow-right"></i>
-                            </button>
+                        <div class="map-area" data-place="red-fort" style="top: 35%; left: 50%;">
+                            <div class="map-pin">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="map-tooltip">Red Fort</div>
                         </div>
+                        <!-- More map points will be added by JS -->
                     </div>
-                    <!-- More slides would be here -->
                 </div>
-                <div class="carousel-controls">
-                    <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
-                    <div class="carousel-dots"></div>
-                    <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="map-legend">
+                    <h4><i class="fas fa-filter"></i> Filter by Type</h4>
+                    <div class="legend-items">
+                        <div class="legend-item" data-type="monument">
+                            <span class="legend-color monument"></span>
+                            <span>Monuments</span>
+                        </div>
+                        <div class="legend-item" data-type="temple">
+                            <span class="legend-color temple"></span>
+                            <span>Temples</span>
+                        </div>
+                        <div class="legend-item" data-type="garden">
+                            <span class="legend-color garden"></span>
+                            <span>Gardens</span>
+                        </div>
+                        <div class="legend-item" data-type="market">
+                            <span class="legend-color market"></span>
+                            <span>Markets</span>
+                        </div>
+                        <div class="legend-item" data-type="food">
+                            <span class="legend-color food"></span>
+                            <span>Food Joints</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -253,540 +270,359 @@
     <section id="temples" class="places-section">
         <div class="container">
             <div class="section-header">
-                <div class="section-title-wrapper">
+                <div class="section-title-row">
                     <h2 class="section-title">Sacred Temples of Delhi</h2>
                     <span class="section-count">45 Places</span>
                 </div>
-                <div class="section-filters">
-                    <div class="filter-group">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="hindu">Hindu</button>
-                        <button class="filter-btn" data-filter="islamic">Islamic</button>
-                        <button class="filter-btn" data-filter="buddhist">Buddhist</button>
-                        <button class="filter-btn" data-filter="sikh">Sikh</button>
-                    </div>
-                    <div class="sort-group">
-                        <select class="sort-select">
-                            <option value="popular">Most Popular</option>
-                            <option value="rating">Highest Rated</option>
-                            <option value="newest">Recently Added</option>
-                            <option value="name">Alphabetical</option>
-                        </select>
-                    </div>
+                <p class="section-subtitle">Spiritual sanctuaries that have stood the test of time</p>
+            </div>
+
+            <div class="places-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Temples</button>
+                    <button class="filter-tab" data-filter="hindu">Hindu</button>
+                    <button class="filter-tab" data-filter="bahai">Bahai</button>
+                    <button class="filter-tab" data-filter="iskcon">ISKCON</button>
+                    <button class="filter-tab" data-filter="gurudwara">Gurudwara</button>
+                </div>
+                <div class="sort-options">
+                    <select class="sort-select">
+                        <option value="popular">Most Popular</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="name">A to Z</option>
+                        <option value="newest">Recently Added</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- Temple Grid with detailed cards -->
-            <div class="places-grid">
-                <!-- Akshardham Temple -->
-                <div class="place-card detailed-card" data-id="1" data-category="hindu temple">
-                    <div class="card-badge">
-                        <span class="badge popular"><i class="fas fa-fire"></i> Most Popular</span>
-                        <span class="badge timing"><i class="fas fa-clock"></i> 9AM-7:30PM</span>
-                    </div>
-                    <div class="place-image">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Akshardham Temple">
-                        <div class="image-overlay">
-                            <button class="quick-view" onclick="showPlaceDetails(1)">
-                                <i class="fas fa-expand"></i> Quick View
-                            </button>
-                        </div>
-                        <div class="place-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="rating-text">4.8/5</span>
-                        </div>
-                    </div>
-                    <div class="place-content">
-                        <div class="place-header">
-                            <h3 class="place-title">Swaminarayan Akshardham</h3>
-                            <div class="place-tags">
-                                <span class="tag"><i class="fas fa-rupee-sign"></i> ₹250 Entry</span>
-                                <span class="tag"><i class="fas fa-subway"></i> Akshardham Metro</span>
-                                <span class="tag"><i class="fas fa-clock"></i> 4-5 hours</span>
-                            </div>
-                        </div>
-                        <p class="place-description">
-                            The world's largest comprehensive Hindu temple, showcasing millennia of Indian culture, 
-                            spirituality, and architecture through exhibitions, gardens, and water shows.
-                        </p>
-                        <div class="place-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Noida Mor, New Delhi</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>Best Time: Oct-Mar</span>
-                            </div>
-                        </div>
-                        <div class="place-actions">
-                            <button class="btn-primary" onclick="showPlaceDetails(1)">
-                                <i class="fas fa-info-circle"></i> View Details
-                            </button>
-                            <button class="btn-secondary save-place" data-place="1">
-                                <i class="far fa-heart"></i> Save
-                            </button>
-                            <button class="btn-tertiary" onclick="showDirections(1)">
-                                <i class="fas fa-directions"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Lotus Temple -->
-                <div class="place-card detailed-card" data-id="2" data-category="bahai temple">
-                    <div class="card-badge">
-                        <span class="badge must-visit"><i class="fas fa-crown"></i> Must Visit</span>
-                        <span class="badge free"><i class="fas fa-rupee-sign"></i> Free Entry</span>
-                    </div>
-                    <div class="place-image">
-                        <img src="https://images.unsplash.com/photo-1586769852042-1e8e93b5d5b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lotus Temple">
-                        <div class="image-overlay">
-                            <button class="quick-view" onclick="showPlaceDetails(2)">
-                                <i class="fas fa-expand"></i> Quick View
-                            </button>
-                        </div>
-                        <div class="place-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-text">4.9/5</span>
-                        </div>
-                    </div>
-                    <div class="place-content">
-                        <div class="place-header">
-                            <h3 class="place-title">Lotus Temple</h3>
-                            <div class="place-tags">
-                                <span class="tag"><i class="fas fa-pray"></i> All Religions</span>
-                                <span class="tag"><i class="fas fa-camera"></i> Photography</span>
-                                <span class="tag"><i class="fas fa-users"></i> Peaceful</span>
-                            </div>
-                        </div>
-                        <p class="place-description">
-                            A Bahá'í House of Worship famous for its flowerlike architecture. 
-                            Open to all religions, it's a symbol of unity and peace in the heart of Delhi.
-                        </p>
-                        <div class="place-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Kalkaji, South Delhi</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-volume-mute"></i>
-                                <span>Silence Maintained</span>
-                            </div>
-                        </div>
-                        <div class="place-actions">
-                            <button class="btn-primary" onclick="showPlaceDetails(2)">
-                                <i class="fas fa-info-circle"></i> View Details
-                            </button>
-                            <button class="btn-secondary save-place" data-place="2">
-                                <i class="far fa-heart"></i> Save
-                            </button>
-                            <button class="btn-tertiary" onclick="showDirections(2)">
-                                <i class="fas fa-directions"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ISKCON Temple -->
-                <div class="place-card detailed-card" data-id="3" data-category="hindu temple">
-                    <div class="card-badge">
-                        <span class="badge family"><i class="fas fa-users"></i> Family Friendly</span>
-                        <span class="badge food"><i class="fas fa-utensils"></i> Prasad Available</span>
-                    </div>
-                    <div class="place-image">
-                        <img src="https://images.unsplash.com/photo-1567446537710-0c5e821ff014?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ISKCON Temple">
-                        <div class="image-overlay">
-                            <button class="quick-view" onclick="showPlaceDetails(3)">
-                                <i class="fas fa-expand"></i> Quick View
-                            </button>
-                        </div>
-                        <div class="place-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-text">4.7/5</span>
-                        </div>
-                    </div>
-                    <div class="place-content">
-                        <div class="place-header">
-                            <h3 class="place-title">ISKCON Temple Delhi</h3>
-                            <div class="place-tags">
-                                <span class="tag"><i class="fas fa-music"></i> Kirtans Daily</span>
-                                <span class="tag"><i class="fas fa-book"></i> Vedic Library</span>
-                                <span class="tag"><i class="fas fa-store"></i> Souvenir Shop</span>
-                            </div>
-                        </div>
-                        <p class="place-description">
-                            One of the largest temple complexes of the International Society for Krishna Consciousness, 
-                            featuring beautiful deities, cultural exhibitions, and spiritual discourses.
-                        </p>
-                        <div class="place-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Hare Krishna Hills, Sant Nagar</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Events Daily</span>
-                            </div>
-                        </div>
-                        <div class="place-actions">
-                            <button class="btn-primary" onclick="showPlaceDetails(3)">
-                                <i class="fas fa-info-circle"></i> View Details
-                            </button>
-                            <button class="btn-secondary save-place" data-place="3">
-                                <i class="far fa-heart"></i> Save
-                            </button>
-                            <button class="btn-tertiary" onclick="showDirections(3)">
-                                <i class="fas fa-directions"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Birla Mandir -->
-                <div class="place-card detailed-card" data-id="4" data-category="hindu temple">
-                    <div class="card-badge">
-                        <span class="badge historical"><i class="fas fa-history"></i> Historical</span>
-                        <span class="badge architecture"><i class="fas fa-archway"></i> White Marble</span>
-                    </div>
-                    <div class="place-image">
-                        <img src="https://images.unsplash.com/photo-1591134217227-6e7b6b8f6444?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Birla Mandir">
-                        <div class="image-overlay">
-                            <button class="quick-view" onclick="showPlaceDetails(4)">
-                                <i class="fas fa-expand"></i> Quick View
-                            </button>
-                        </div>
-                        <div class="place-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="rating-text">4.6/5</span>
-                        </div>
-                    </div>
-                    <div class="place-content">
-                        <div class="place-header">
-                            <h3 class="place-title">Birla Mandir (Laxminarayan Temple)</h3>
-                            <div class="place-tags">
-                                <span class="tag"><i class="fas fa-mountain"></i> Nagara Style</span>
-                                <span class="tag"><i class="fas fa-palette"></i> Artistic Frescoes</span>
-                                <span class="tag"><i class="fas fa-garden"></i> Beautiful Gardens</span>
-                            </div>
-                        </div>
-                        <p class="place-description">
-                            Built by the Birla family in 1939, this magnificent white marble temple dedicated to 
-                            Lord Vishnu and Goddess Lakshmi showcases exquisite carvings and sculptures.
-                        </p>
-                        <div class="place-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Connaught Place, Central Delhi</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-history"></i>
-                                <span>Built: 1933-1939</span>
-                            </div>
-                        </div>
-                        <div class="place-actions">
-                            <button class="btn-primary" onclick="showPlaceDetails(4)">
-                                <i class="fas fa-info-circle"></i> View Details
-                            </button>
-                            <button class="btn-secondary save-place" data-place="4">
-                                <i class="far fa-heart"></i> Save
-                            </button>
-                            <button class="btn-tertiary" onclick="showDirections(4)">
-                                <i class="fas fa-directions"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- More temple cards... (Adding more would make this VERY long) -->
+            <div class="places-grid" id="templesGrid">
+                <!-- Temples will be loaded by JavaScript -->
             </div>
 
             <div class="section-footer">
                 <button class="btn-load-more" id="loadMoreTemples">
-                    <i class="fas fa-plus-circle"></i> Load More Temples (41 more)
+                    <i class="fas fa-plus"></i> Load More Temples
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Similar sections for other categories would follow -->
+    <!-- Monuments Section -->
+    <section id="monuments" class="places-section bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-row">
+                    <h2 class="section-title">Historical Monuments</h2>
+                    <span class="section-count">32 Places</span>
+                </div>
+                <p class="section-subtitle">Architectural wonders that tell Delhi's story</p>
+            </div>
 
-    <!-- Enhanced Modal with Tabs -->
-    <div id="placeModal" class="modal enhanced-modal">
-        <div class="modal-container">
-            <div class="modal-content">
-                <button class="modal-close">&times;</button>
-                <div class="modal-header">
-                    <div class="modal-header-content">
-                        <h2 id="modalTitle">Place Details</h2>
-                        <div class="modal-rating">
-                            <div class="stars" id="modalStars"></div>
-                            <span class="rating-value" id="modalRatingValue"></span>
-                            <span class="review-count">(<span id="reviewCount"></span> reviews)</span>
-                        </div>
-                    </div>
-                    <div class="modal-category" id="modalCategory"></div>
+            <div class="places-grid" id="monumentsGrid">
+                <!-- Monuments will be loaded by JavaScript -->
+            </div>
+
+            <div class="section-footer">
+                <button class="btn-load-more" id="loadMoreMonuments">
+                    <i class="fas fa-plus"></i> Load More Monuments
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gardens Section -->
+    <section id="gardens" class="places-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-row">
+                    <h2 class="section-title">Gardens & Parks</h2>
+                    <span class="section-count">25 Places</span>
                 </div>
-                
-                <div class="modal-tabs">
-                    <button class="tab-btn active" data-tab="overview">
-                        <i class="fas fa-info-circle"></i> Overview
-                    </button>
-                    <button class="tab-btn" data-tab="details">
-                        <i class="fas fa-clipboard-list"></i> Details
-                    </button>
-                    <button class="tab-btn" data-tab="photos">
-                        <i class="fas fa-images"></i> Photos
-                    </button>
-                    <button class="tab-btn" data-tab="reviews">
-                        <i class="fas fa-comments"></i> Reviews
-                    </button>
-                    <button class="tab-btn" data-tab="nearby">
-                        <i class="fas fa-map-marker-alt"></i> Nearby
-                    </button>
+                <p class="section-subtitle">Green oases in the heart of the city</p>
+            </div>
+
+            <div class="places-grid" id="gardensGrid">
+                <!-- Gardens will be loaded by JavaScript -->
+            </div>
+
+            <div class="section-footer">
+                <button class="btn-load-more" id="loadMoreGardens">
+                    <i class="fas fa-plus"></i> Load More Gardens
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Markets Section -->
+    <section id="markets" class="places-section bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-row">
+                    <h2 class="section-title">Markets & Shopping</h2>
+                    <span class="section-count">40 Places</span>
                 </div>
-                
-                <div class="modal-body">
-                    <!-- Overview Tab -->
-                    <div class="tab-content active" id="overviewTab">
-                        <div class="overview-hero">
-                            <div class="overview-image">
-                                <img id="modalMainImage" src="" alt="">
-                                <div class="image-counter">
-                                    <i class="fas fa-camera"></i> <span id="photoCount">12</span> Photos
-                                </div>
-                            </div>
-                            <div class="overview-summary">
-                                <h3>Quick Summary</h3>
-                                <div class="summary-grid">
-                                    <div class="summary-item">
-                                        <i class="fas fa-clock"></i>
-                                        <div>
-                                            <strong>Timings</strong>
-                                            <p id="summaryTimings"></p>
-                                        </div>
-                                    </div>
-                                    <div class="summary-item">
-                                        <i class="fas fa-rupee-sign"></i>
-                                        <div>
-                                            <strong>Entry Fee</strong>
-                                            <p id="summaryFee"></p>
-                                        </div>
-                                    </div>
-                                    <div class="summary-item">
-                                        <i class="fas fa-subway"></i>
-                                        <div>
-                                            <strong>Nearest Metro</strong>
-                                            <p id="summaryMetro"></p>
-                                        </div>
-                                    </div>
-                                    <div class="summary-item">
-                                        <i class="fas fa-car"></i>
-                                        <div>
-                                            <strong>Parking</strong>
-                                            <p id="summaryParking"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overview-description">
-                                    <h4>About This Place</h4>
-                                    <p id="modalDescription"></p>
-                                </div>
-                            </div>
+                <p class="section-subtitle">From street bazaars to luxury malls</p>
+            </div>
+
+            <div class="places-grid" id="marketsGrid">
+                <!-- Markets will be loaded by JavaScript -->
+            </div>
+
+            <div class="section-footer">
+                <button class="btn-load-more" id="loadMoreMarkets">
+                    <i class="fas fa-plus"></i> Load More Markets
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Section -->
+    <section id="food" class="places-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-row">
+                    <h2 class="section-title">Food & Dining</h2>
+                    <span class="section-count">50 Places</span>
+                </div>
+                <p class="section-subtitle">Taste Delhi's culinary diversity</p>
+            </div>
+
+            <div class="places-grid" id="foodGrid">
+                <!-- Food places will be loaded by JavaScript -->
+            </div>
+
+            <div class="section-footer">
+                <button class="btn-load-more" id="loadMoreFood">
+                    <i class="fas fa-plus"></i> Load More Food Joints
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Planner -->
+    <section id="itinerary" class="trip-planner">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Plan Your Delhi Trip</h2>
+                <p class="section-subtitle">Create custom itineraries for your visit</p>
+            </div>
+            
+            <div class="planner-container">
+                <div class="planner-sidebar">
+                    <h3><i class="fas fa-calendar-alt"></i> Your Itinerary</h3>
+                    <div class="itinerary-days">
+                        <div class="day active" data-day="1">
+                            <span>Day 1</span>
+                            <button class="remove-day">&times;</button>
                         </div>
+                        <button class="add-day">+ Add Day</button>
                     </div>
                     
-                    <!-- Details Tab -->
-                    <div class="tab-content" id="detailsTab">
-                        <div class="details-grid">
-                            <div class="details-section">
-                                <h4><i class="fas fa-history"></i> Historical Significance</h4>
-                                <p id="historicalInfo"></p>
-                            </div>
-                            <div class="details-section">
-                                <h4><i class="fas fa-archway"></i> Architecture</h4>
-                                <p id="architectureInfo"></p>
-                            </div>
-                            <div class="details-section">
-                                <h4><i class="fas fa-walking"></i> Visitor Information</h4>
-                                <div class="visitor-info">
-                                    <div class="info-item">
-                                        <strong>Best Time to Visit:</strong>
-                                        <span id="bestTime"></span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Time Required:</strong>
-                                        <span id="timeRequired"></span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Photography:</strong>
-                                        <span id="photographyRules"></span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Guides Available:</strong>
-                                        <span id="guidesAvailable"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="details-section">
-                                <h4><i class="fas fa-utensils"></i> Facilities</h4>
-                                <div class="facilities-list" id="facilitiesList"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Photos Tab -->
-                    <div class="tab-content" id="photosTab">
-                        <div class="photos-grid" id="photosGrid">
-                            <!-- Photos will be loaded here -->
-                        </div>
-                    </div>
-                    
-                    <!-- Reviews Tab -->
-                    <div class="tab-content" id="reviewsTab">
-                        <div class="reviews-container">
-                            <div class="review-summary">
-                                <div class="overall-rating">
-                                    <div class="rating-number" id="overallRating">4.8</div>
-                                    <div class="rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <div class="rating-text">Excellent</div>
-                                </div>
-                                <div class="rating-breakdown">
-                                    <!-- Rating bars will be added here -->
-                                </div>
-                            </div>
-                            <div class="reviews-list" id="reviewsList">
-                                <!-- Reviews will be loaded here -->
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Nearby Tab -->
-                    <div class="tab-content" id="nearbyTab">
-                        <div class="nearby-places">
-                            <h3>Places Nearby</h3>
-                            <p class="nearby-subtitle">Explore these places within 5km radius</p>
-                            <div class="nearby-grid" id="nearbyGrid">
-                                <!-- Nearby places will be loaded here -->
-                            </div>
-                        </div>
+                    <div class="saved-places">
+                        <h4><i class="fas fa-heart"></i> Saved Places</h4>
+                        <div class="saved-list"></div>
                     </div>
                 </div>
                 
-                <div class="modal-footer">
-                    <div class="footer-actions">
-                        <button class="btn-action-large" id="getDirectionsBtn">
-                            <i class="fas fa-directions"></i> Get Directions
-                        </button>
-                        <button class="btn-action-large" id="saveToItineraryBtn">
-                            <i class="fas fa-calendar-plus"></i> Add to Trip
-                        </button>
-                        <button class="btn-action-large" id="sharePlaceBtn">
-                            <i class="fas fa-share-alt"></i> Share
-                        </button>
+                <div class="planner-main">
+                    <div class="planner-day">
+                        <h3>Day 1: Historical Delhi</h3>
+                        <div class="time-slots">
+                            <div class="time-slot morning">
+                                <h4><i class="fas fa-sun"></i> Morning (9 AM - 12 PM)</h4>
+                                <div class="slot-places">
+                                    <div class="slot-place" data-place="red-fort">
+                                        <span>Red Fort</span>
+                                        <button class="remove-slot">&times;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="time-slot afternoon">
+                                <h4><i class="fas fa-cloud-sun"></i> Afternoon (12 PM - 4 PM)</h4>
+                                <div class="slot-places"></div>
+                            </div>
+                            <div class="time-slot evening">
+                                <h4><i class="fas fa-moon"></i> Evening (4 PM - 8 PM)</h4>
+                                <div class="slot-places"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="footer-info">
-                        <div class="info-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span id="contactNumber">+91-XXXXXXXXXX</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-globe"></i>
-                            <a href="#" id="officialWebsite" target="_blank">Official Website</a>
-                        </div>
+                    
+                    <div class="planner-actions">
+                        <button class="btn-primary"><i class="fas fa-download"></i> Download PDF</button>
+                        <button class="btn-secondary"><i class="fas fa-share-alt"></i> Share Itinerary</button>
+                        <button class="btn-tertiary"><i class="fas fa-print"></i> Print</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Explorer Hub</h2>
+                    <p class="about-description">
+                        Explorer Hub is your ultimate digital companion for discovering Delhi's rich heritage, vibrant culture, and hidden treasures. 
+                        We're passionate about showcasing the real Delhi - from ancient monuments to modern marvels.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h4>Comprehensive Guide</h4>
+                            <p>200+ locations with detailed information</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-camera"></i>
+                            <h4>Virtual Tours</h4>
+                            <p>360° views and photo galleries</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-route"></i>
+                            <h4>Trip Planning</h4>
+                            <p>Customizable itineraries</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Friendly</h4>
+                            <p>Optimized for all devices</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Delhi Heritage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Have questions or suggestions? We'd love to hear from you!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Connaught Place, New Delhi</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@explorerhub.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon-Sat: 9AM - 6PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-column">
                     <div class="footer-logo">
                         <i class="fas fa-compass"></i>
                         <h3>Explorer Hub</h3>
                     </div>
                     <p class="footer-description">
-                        Your ultimate guide to discovering Delhi's rich heritage, culture, and hidden treasures. 
-                        We help you explore every corner of the capital city.
+                        Your complete guide to exploring Delhi's rich heritage, culture, and modern attractions.
                     </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#explore">Explore Delhi</a></li>
                         <li><a href="#temples">Temples</a></li>
                         <li><a href="#monuments">Monuments</a></li>
                         <li><a href="#gardens">Gardens</a></li>
-                        <li><a href="#hidden">Hidden Gems</a></li>
-                        <li><a href="#food">Food Guide</a></li>
+                        <li><a href="#itinerary">Trip Planner</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Categories</h4>
                     <ul class="footer-links">
                         <li><a href="#temples">Religious Places</a></li>
                         <li><a href="#monuments">Historical Sites</a></li>
-                        <li><a href="#museums">Museums</a></li>
-                        <li><a href="#markets">Markets</a></li>
-                        <li><a href="#food">Street Food</a></li>
-                        <li><a href="#nightlife">Nightlife</a></li>
+                        <li><a href="#gardens">Parks & Gardens</a></li>
+                        <li><a href="#markets">Shopping</a></li>
+                        <li><a href="#food">Food & Dining</a></li>
+                        <li><a href="#culture">Cultural Centers</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Connaught Place, New Delhi</p>
-                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
-                        <p><i class="fas fa-envelope"></i> info@explorerhub.com</p>
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for travel tips and updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </div>
-                    <div class="newsletter">
-                        <h5>Stay Updated</h5>
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="Your Email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    <div class="app-download">
+                        <p>Download our app</p>
+                        <div class="app-buttons">
+                            <a href="#" class="app-btn">
+                                <i class="fab fa-google-play"></i>
+                                <span>Google Play</span>
+                            </a>
+                            <a href="#" class="app-btn">
+                                <i class="fab fa-app-store"></i>
+                                <span>App Store</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -798,19 +634,28 @@
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Cookie Policy</a>
+                    <a href="#">Sitemap</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Place Details Modal -->
+    <div class="modal" id="placeModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <!-- Content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button class="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
